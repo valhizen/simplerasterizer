@@ -1,0 +1,24 @@
+#include <fstream>
+#include <iostream>
+struct {
+} PMPImage;
+
+int main() {
+
+		static int ImageWidth = 520;
+		static int ImageHeight = 520;
+		// I have a triangle
+  float triangle[] = {
+      -0.5f, -0.5f, 0.0f, //
+      0.5f,  -0.5f, 0.0f, //
+      0.0f,  -0.5f, 0.0f  //
+  };
+	// Need a Image Buffer, A z buffer , the triangle
+	// Put the triangle into 2D projection and rasteriza and then the final output
+
+	// Let's Just write How a Simple PPM file will be
+	std::ofstream PPMfile;
+	PPMfile.open("../test.ppm", std::ios::binary);
+	PPMfile << "P6\n" << ImageWidth << " " << ImageHeight << "255\n";
+	PPMfile.close();
+}
