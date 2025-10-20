@@ -11,8 +11,6 @@ void Project3DTriangleInto2D(float triangle[], float output[], float width,
   }
 }
 
-
-
 void rastarization(float projection[]) {
   // Z axis not needed
 
@@ -56,15 +54,13 @@ void rasterize(float projection[], int width, int height,
       if (isInsideTriangle(x, y, x0, y0, x1, y1, x2, y2)) {
         // Pixel is inside triangle, write color
         int pixelIndex = (y * width + x) * 3;
-        imageBuffer[pixelIndex] = 29;     // R
-        imageBuffer[pixelIndex + 1] = 25; // G
-        imageBuffer[pixelIndex + 2] = 23; // B
+        imageBuffer[pixelIndex] = 200;     // R
+        imageBuffer[pixelIndex + 1] = 190; // G
+        imageBuffer[pixelIndex + 2] = 130; // B
       }
     }
   }
 }
-
-void rasterize(float projection[]) {}
 
 int main() {
 
@@ -76,6 +72,7 @@ int main() {
       0.5f,  -0.5f, 0.0f, //
       0.0f,  0.5f,  0.0f  //
   };
+	// Created a buffer (memory) for image
   unsigned char *imageBuffer =
       new unsigned char[(int)ImageWidth * (int)ImageHeight * 3];
   float projection[9];
@@ -96,4 +93,5 @@ int main() {
   PPMfile.close();
 
   delete[] imageBuffer;
+	return 0;
 }
